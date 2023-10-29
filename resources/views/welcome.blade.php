@@ -47,17 +47,17 @@
     <span style="color:white;" class="navbar-text">
         Navbar for searching casino games
     </span>
-    <form style="width:70%;" class="form-inline" action="{{ route('search') }}" method="GET">
+    <form style="width:70%;" class="form-inline" action="{{ route('welcome') }}" method="GET">
         <input style="width:40%;" class="form-control mr-sm-2" type="search" name="search"
-            value="{{ Request::get('search') }}" placeholder="Search a casino game name" aria-label="Search">
+            value="{{ Request::get('/') }}" placeholder="Search a casino game name" aria-label="Search">
         <button style="width:20%;" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </form>
 </nav>
 
 <body class="antialiased">
 
-    <form style="border: 3px solid #aaa;padding: 5px;border-radius: 9px;width:80%;"
-        class="row d-flex justify-content-start m-3" action="{{ route('search') }}">
+    <form style="border: 3px solid #aaa;padding: 5px;border-radius: 9px;width:90%;"
+        class="row d-flex justify-content-start m-3" action="{{ route('welcome') }}">
         <div class="col-2">
 
             <label>Categories</label>
@@ -85,7 +85,7 @@
         <div class="col-3">
 
             <label>Features</label>
-            <select name="features">
+            <select name="features" style="margin-bottom:10%;">
                 <option value="" @if(Request::get('features')=='') selected @endif>Not chosen</option>
                 @foreach ($features as $feat)
                     <option value="{{ $feat->title }}"  @if(Request::get('features')== $feat->title) selected @endif> {{ $feat->title }}</option>
@@ -93,7 +93,7 @@
             </select>
         </div>
 
-        <div style="margin-top:2.5%;" class="col-2 ml-3">
+        <div  class="col-2 ml-3">
             <button  class="btn btn-success" type="submit">Search with filters</button>
         </div>
 
